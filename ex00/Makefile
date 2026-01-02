@@ -4,7 +4,7 @@ CFLAGS = -Wall -Wextra -Werror -std=c++98
 
 CC = c++
 
-SRC =  ScalarConverter.cpp main.cpp
+SRC =  ScalarConverter.cpp main.cpp printTypes.cpp
 
 SRC_H =	ScalarConverter.hpp
 

@@ -1,15 +1,9 @@
 #include "ScalarConverter.hpp"
 
 
-bool isDouble(const std::string& s) {
-    std::istringstream iss(s);
-    double d;
-    iss >> d;
-    return iss.eof() && !iss.fail();
-}
+int main(int argc, char *argv[]) {
+    (void)argc;
+   ScalarConverter::convert(argv[1]);
 
-int main() {
-   ScalarConverter::convert("12.25");
-   
     return 0;
 }
