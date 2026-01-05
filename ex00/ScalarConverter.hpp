@@ -19,8 +19,7 @@ class ScalarConverter
         static void convert(const std::string& str);
 };
 
-
-template <typename T1> 
+template <typename T1>
 void print_char(T1 nb)
 {
     if (!isascii(nb))
@@ -53,7 +52,8 @@ void print_double(T1 nb)
 template <typename T1> 
 void print_float(T1 nb)
 {
-    if ((double)nb > MAXFLOAT)
+   
+    if ((long)nb > FLT_MAX || (long)nb < FLT_MIN)
         std::cout << "float: " << "Impossible" << std::endl;
     else if (nb == static_cast<int>(nb))
         std::cout << "float: " << static_cast<float>(nb) << ".0f" << std::endl;

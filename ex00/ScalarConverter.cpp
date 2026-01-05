@@ -44,7 +44,7 @@ bool is_float(const std::string& s)
     float value;
     std::string str[4] = {"char: ", "int: ", "float: ", "double: "};
     value = std::strtold(s.c_str(), NULL);
-    if (s != "+inff" && s != "-inff" && s != "nanf" && s != "-nanf")
+    if (s != "+inff" && s != "-inff" && s != "nanf" && s != "+nanf" && s != "-nanf")
     {
         float value2;
         if (s[s.size() - 1] != 'f' || (s[s.size() - 4] && isdigit(s[s.size() - 4]) && !strchr(s.c_str(), '.')))
@@ -52,6 +52,7 @@ bool is_float(const std::string& s)
         std::string tmp = s.substr(0, s.size() - 1);
         std::stringstream iss(tmp);
         iss >> value2;
+        // std::cout << value2 << std::endl;
         if (!iss.fail() && iss.eof())
         {
             printin(str, value2);
@@ -72,7 +73,7 @@ bool is_double(const std::string& s)
     double value;
     std::string str[4] = {"char: ", "int: ", "float: ", "double: "};
     value = std::strtold(s.c_str(), NULL);
-    if (s != "+inf" && s != "-inf" && s != "nan" && s != "-nan")
+    if (s != "+inf" && s != "nanf" && s != "-inf" && s != "nan" && s != "-nan")
     {
         double value2;
         std::stringstream iss(s);
