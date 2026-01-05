@@ -1,12 +1,12 @@
-NAME = convert
+NAME = Serializer
 
-CFLAGS = -Wall -Wextra -Werror -std=c++98
+CFLAGS = -Wextra -Wall -Werror -std=c++98
 
 CC = c++
 
-SRC =  ScalarConverter.cpp main.cpp printTypes.cpp
+SRC = main.cpp Serializer.cpp
 
-SRC_H =	ScalarConverter.hpp
+SRC_H = Serializer.hpp
 
 OBJ = $(SRC:.cpp=.o)
 
@@ -18,10 +18,10 @@ $(NAME): $(OBJ)
 %.o: %.cpp $(SRC_H)
 	$(CC) $(CFLAGS) -c $< -o $@
 
-clean:
+clean: 
 	rm -f $(OBJ)
-	
-fclean: clean
+
+fclean : clean
 	rm -f $(NAME)
 
 re: fclean all
