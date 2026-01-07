@@ -2,21 +2,11 @@
 # define __DATA_HPP__
 
 #include <iostream>
-#include <sstream>
-#include <cstring>
-#include <cmath>
-#include <bits/stdc++.h>
 
-class Data
+struct Data
 {
-    private:
-        Data();
-        Data(const Data& obj);
-        Data& operator=(const Data& obj);
-        ~Data();
-
-    // public:
-        
+    int member;
+    std::string str;
 };
 
 #endif

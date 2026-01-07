@@ -2,10 +2,8 @@
 # define __SERIALIZER_HPP__
 
 #include <iostream>
-#include <sstream>
-#include <cstring>
-#include <cmath>
-#include <bits/stdc++.h>
+#include <stdint.h>
+
 #include "Data.hpp" 
 
 class Serializer

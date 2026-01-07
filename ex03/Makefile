@@ -1,12 +1,12 @@
-NAME = Serializer
+NAME = convert
 
-# CFLAGS = -Wextra -Wall -Werror -std=c++98
+CFLAGS = -Wall -Wextra -Werror -std=c++98
 
 CC = c++
 
-SRC = main.cpp Serializer.cpp
+SRC =  Base.cpp main.cpp A.cpp B.cpp C.cpp
 
-SRC_H = Serializer.hpp
+SRC_H =	Base.hpp A.hpp B.hpp C.hpp
 
 OBJ = $(SRC:.cpp=.o)
 
@@ -18,10 +18,10 @@ $(NAME): $(OBJ)
 %.o: %.cpp $(SRC_H)
 	$(CC) $(CFLAGS) -c $< -o $@
 
-clean: 
+clean:
 	rm -f $(OBJ)
-
-fclean : clean
+	
+fclean: clean
 	rm -f $(NAME)
 
 re: fclean all
