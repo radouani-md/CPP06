@@ -19,4 +19,7 @@ class Serializer
         static Data* deserialize(uintptr_t raw );
 };
 
+
+class B
+{};
 #endif

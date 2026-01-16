@@ -4,7 +4,7 @@ CFLAGS = -Wall -Wextra -Werror -std=c++98
 
 CC = c++
 
-SRC =  Base.cpp main.cpp A.cpp B.cpp C.cpp
+SRC =  Base.cpp main.cpp
 
 SRC_H =	Base.hpp A.hpp B.hpp C.hpp
 

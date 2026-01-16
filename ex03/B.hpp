@@ -2,12 +2,9 @@
 # define __B_HPP__
 
 #include <iostream>
+#include "Base.hpp"
 
 
-class B
-{
-    public:
-        static void convert(const std::string& str);
-};
+class B : public Base {};
 
 #endif

@@ -4,10 +4,11 @@
 #include <iostream>
 
 
+
 class Base
 {
     public:
-    ~Base();
+        virtual ~Base();
 };
 
 
