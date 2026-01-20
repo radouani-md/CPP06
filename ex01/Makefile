@@ -1,6 +1,6 @@
 NAME = Serializer
 
-# CFLAGS = -Wextra -Wall -Werror -std=c++98
+CFLAGS = -Wextra -Wall -Werror -std=c++98
 
 CC = c++
 

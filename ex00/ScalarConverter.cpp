@@ -6,8 +6,6 @@ ScalarConverter::ScalarConverter(const ScalarConverter& obj){(void)obj;}
 ScalarConverter& ScalarConverter::operator=(const ScalarConverter& obj){(void)obj;return *this;}
 ScalarConverter::~ScalarConverter(){}
 
-
-
 template <typename T1> 
 void printin(std::string str[], T1 nb)
 {
@@ -39,57 +37,57 @@ bool is_int(const std::string& s)
     return (false);
 }
 
+
 bool is_float(const std::string& s) 
 {
     float value;
+    char *end;
     std::string str[4] = {"char: ", "int: ", "float: ", "double: "};
-    value = std::strtold(s.c_str(), NULL);
-    if (s != "+inff" && s != "-inff" && s != "nanf" && s != "+nanf" && s != "-nanf")
+    value = std::strtold(s.c_str(), &end);
+    if (std::string("f") != end)
+        return (false);
+    if (s.find("inf") == std::string::npos && s.find("nan") == std::string::npos)
     {
-        float value2;
-        if (s[s.size() - 1] != 'f' || (s[s.size() - 4] && isdigit(s[s.size() - 4]) && !strchr(s.c_str(), '.')))
-            return false;
-        std::string tmp = s.substr(0, s.size() - 1);
-        std::stringstream iss(tmp);
-        iss >> value2;
-        // std::cout << value2 << std::endl;
-        if (!iss.fail() && iss.eof())
-        {
-            printin(str, value2);
-            return (true);
-        }
+        if ((s.find(".") == std::string::npos && s.find("e") == std::string::npos))
+            return (false);
+        std::cout << "ss\n";
+        std::stringstream iss(s);
+        std::stringstream check;
+        iss >> value;
+        if (iss.fail())
+            return (false);
+        check << value;
+        check >> value;
+        if (check.fail())
+            return (false);
     }
-    else
-    {
-        printin(str, value);
-        return (true);
-    }
-    return (false);
+    printin(str, value);
+    return (true);
 }
 
 
 bool is_double(const std::string& s) 
 {
     double value;
+    char *end;
     std::string str[4] = {"char: ", "int: ", "float: ", "double: "};
-    value = std::strtold(s.c_str(), NULL);
-    if (s != "+inf" && s != "nanf" && s != "-inf" && s != "nan" && s != "-nan")
+    value = std::strtold(s.c_str(), &end);
+    if (*end)
+        return (false);
+    if (s.find("inf") == std::string::npos && s.find("nan") == std::string::npos)
     {
-        double value2;
         std::stringstream iss(s);
-        iss >> value2;
-        if (!iss.fail() && iss.eof())
-        {
-            printin(str, value2);
-            return (true);
-        }
+        std::stringstream check;
+        iss >> value;
+        if (iss.fail())
+            return (false);
+        check << value;
+        check >> value;
+        if (check.fail())
+            return (false);
     }
-    else
-    {
-        printin(str, value);
-        return (true);
-    }
-    return (false);
+    printin(str, value);
+    return (true);
 }
 
 bool is_char(const std::string& s)

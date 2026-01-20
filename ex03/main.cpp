@@ -6,13 +6,13 @@
 
 int main()
 {
-    Base bs;
-    Base *bs1 = &bs;
-
+    
+    Base *bs1;
     A a;
     B b;
     C c;
     B &d = b;
+
 
     bs1 = generate();
 

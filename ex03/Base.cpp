@@ -16,7 +16,7 @@ Base* generate(void)
     else if (random % 3 == 2)
         return (dynamic_cast<Base*>(new B));
     else
-        return (dynamic_cast<Base*>(new C)); 
+        return (dynamic_cast<Base*>(new C));
 }
 
 void identify(Base* p)

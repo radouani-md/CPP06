@@ -4,6 +4,8 @@
 #include <iostream>
 #include <sstream>
 #include <cstring>
+// #include <cstdlib>
+#include <limits>
 #include <cmath>
 #include <bits/stdc++.h>
 
@@ -43,7 +45,9 @@ void print_int(T1 nb)
 template <typename T1> 
 void print_double(T1 nb)
 {
-    if (nb == static_cast<int>(nb))
+    if (std::isinf(nb))
+        std::cout << "double: " << static_cast<double>(nb) << std::endl;
+    else if (nb == static_cast<int>(nb))
          std::cout << "double: " << static_cast<double>(nb) << ".0" << std::endl;
     else
         std::cout << "double: " << static_cast<double>(nb) << std::endl;
@@ -52,10 +56,11 @@ void print_double(T1 nb)
 template <typename T1> 
 void print_float(T1 nb)
 {
-   
-    if ((long)nb > FLT_MAX || (long)nb < FLT_MIN)
+    if (!std::isinf(nb) && std::isinf(static_cast<float>(nb)))
         std::cout << "float: " << "Impossible" << std::endl;
-    else if (nb == static_cast<int>(nb))
+    else if (std::isinf(nb))
+        std::cout << "float: " << static_cast<float>(nb) << "f" << std::endl;
+    else if (nb == std::floor(nb))
         std::cout << "float: " << static_cast<float>(nb) << ".0f" << std::endl;
     else
         std::cout << "float: " << static_cast<float>(nb) << "f" << std::endl;

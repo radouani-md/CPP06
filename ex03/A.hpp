@@ -7,7 +7,12 @@
 
 class A : public Base
 {
-
+    public:
+    
+    virtual void makesound()
+    {
+        std::cout << "From A" << std::endl;
+    }
 };
 
 #endif
