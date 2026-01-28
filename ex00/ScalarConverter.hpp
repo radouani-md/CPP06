@@ -2,11 +2,8 @@
 # define __SCALARCONVERTER_HPP__
 
 #include <iostream>
-#include <sstream>
-#include <cstring>
-// #include <cstdlib>
-#include <limits>
-#include <cmath>
+#include <math.h>
+#include <stdint.h>
 #include <bits/stdc++.h>
 
 class ScalarConverter
@@ -16,7 +13,6 @@ class ScalarConverter
         ScalarConverter(const ScalarConverter& obj);
         ScalarConverter& operator=(const ScalarConverter& obj);
         ~ScalarConverter();
-
     public:
         static void convert(const std::string& str);
 };
@@ -26,17 +22,16 @@ void print_char(T1 nb)
 {
     if (!isascii(nb))
         std::cout << "char: " << "Impossible" << std::endl;
-    else if (!isprint(static_cast<unsigned char>(nb)))
+    else if (!isprint(static_cast<uintptr_t>(nb)))
         std::cout << "char: " << "Non Displayable" << std::endl;
     else
         std::cout << "char: " << static_cast<char>(nb) << std::endl;
 }
 
 template <typename T1> 
-void print_int(T1 nb)
+void print_int(T1 nb, bool isIt)
 {
-    
-    if ((long)nb > INT_MAX || (long)nb < INT_MIN)
+    if (isIt == true || std::isinf(nb) || std::isnan(nb))
         std::cout << "int: " << "Impossible" << std::endl;
     else
         std::cout << "int: " << static_cast<int>(nb) << std::endl;
