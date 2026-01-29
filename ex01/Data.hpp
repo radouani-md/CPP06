@@ -5,7 +5,7 @@
 
 struct Data
 {
-    int member;
+    int         member;
     std::string str;
 };
 

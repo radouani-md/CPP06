@@ -41,7 +41,7 @@ bool is_float(const std::string& s)
     float value;
     char *end;
     std::string str[4] = {"char: ", "int: ", "float: ", "double: "};
-    value = std::strtold(s.c_str(), &end);
+    value = strtod(s.c_str(), &end);
     if (std::string("f") != end)
         return (false);
     if (s.find("inf") == std::string::npos && s.find("nan") == std::string::npos)
@@ -53,6 +53,11 @@ bool is_float(const std::string& s)
         iss >> value;
         if (iss.fail())
             return (false);
+        if (value > 2147483647.0f || value < -2147483648.0f)
+        {
+            printing(str, value, true);
+            return (true);
+        }
         check << value;
         check >> value;
         if (check.fail())
@@ -67,7 +72,7 @@ bool is_double(const std::string& s)
     double value;
     char *end;
     std::string str[4] = {"char: ", "int: ", "float: ", "double: "};
-    value = std::strtold(s.c_str(), &end);
+    value = strtod(s.c_str(), &end);
     if (*end)
         return (false);
     if (s.find("inf") == std::string::npos && s.find("nan") == std::string::npos)
@@ -107,7 +112,6 @@ bool is_char(const std::string& s)
 
 void ScalarConverter::convert(const std::string& str)
 {
-
     if (is_int(str))
         return ;
     else if (is_float(str))

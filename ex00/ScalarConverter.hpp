@@ -4,6 +4,7 @@
 #include <iostream>
 #include <math.h>
 #include <stdint.h>
+#include <cstdlib>
 #include <bits/stdc++.h>
 
 class ScalarConverter
